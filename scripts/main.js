@@ -1,8 +1,8 @@
-// imports
+// import statments
 import locationsArray from '../init-locations.js';
 
 
-// loaction id assigned to locationElement
+
 let locationElement = document.getElementById("location");
 
 window.addEventListener('load', main);
@@ -13,12 +13,12 @@ function main() {
     console.log('Page is fully loaded');
 }
 
-// initializing the current position lat and lon and error to true
+// initializing the current lat, current lon and error 
 let currentlat;
 let currentlon;
 let error = true;
 
-// collects current location
+// collects present location
 async function getLocation() {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -51,7 +51,7 @@ async function locationHandler() {
 }
 
 
-// distance between the locations
+// distance between locations in meters
 
 function distanceBetweenLocations(questLat, questLon) {
     const R = 6371e3;
@@ -66,11 +66,11 @@ function distanceBetweenLocations(questLat, questLon) {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
     const d = R * c;
-    return d; // in metres
+    return d;
 }
 
 
-//Calculates distance and checks if within the range of 20 meters
+//Checks if distane is within the range of 20 meters
 function isInside(questLat, questLon) {
     let distance = distanceBetweenLocations(questLat, questLon);
     console.log("distance: " + distance);
