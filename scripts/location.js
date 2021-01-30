@@ -62,6 +62,8 @@ export default function getLocation() {
                 const s = `ERROR(${err.code}): ${err.message}`;
                 console.warn(s);
                 document.querySelector('#error-message').innerHTML = err.message;
+                let utterance = SpeechSynthesisUtterance("You are still out of range of location");
+                speechSynthesis.speak(utterance);
             },
             options,
         );
