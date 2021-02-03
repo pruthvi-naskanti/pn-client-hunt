@@ -39,12 +39,16 @@ async function locationHandler() {
     locationsArray.forEach(function(value) {
         if (isInside(value.Latitude, value.Longitude)) {
             document.getElementById("locationAnswer").innerHTML = value.Name;
+            let utterance = new SpeechSynthesisUtterance("You reached the location" + value.Name);
+            speechSynthesis.speak(utterance);
             error = false;
         }
     });
 
     if (error) {
         document.getElementById("error-message").innerHTML = "You're not within the range of the location.";
+        let utterance = new SpeechSynthesisUtterance("You are not in any location of the quest.");
+        speechSynthesis.speak(utterance);
     } else {
         document.getElementById("error-message").innerHTML = "";
     }

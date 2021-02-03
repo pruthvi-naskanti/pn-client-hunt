@@ -19,7 +19,6 @@ const inside = (device, bounds) => {
  * Can be easily added to any web page.
  * Includes GeoLocation API example.
  * @module location/getLocation
- * @author Denise Case
  */
 export default function getLocation() {
     if (!navigator.geolocation) {
@@ -62,8 +61,8 @@ export default function getLocation() {
                 const s = `ERROR(${err.code}): ${err.message}`;
                 console.warn(s);
                 document.querySelector('#error-message').innerHTML = err.message;
-                let utterance = SpeechSynthesisUtterance("You are still out of range of location");
-                speechSynthesis.speak(utterance);
+                // let utterance = SpeechSynthesisUtterance("You are still out of range of location");
+                // speechSynthesis.speak(utterance);
             },
             options,
         );
